@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Drug Discovery AI Assistant Design System - Medical/Scientific Theme */
+
+@layer base {
+  :root {
+    /* Scientific color palette */
+    --background: 210 30% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Medical blue primary */
+    --primary: 210 85% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 210 85% 65%;
+
+    /* Teal secondary for scientific accent */
+    --secondary: 180 70% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 20% 95%;
+    --muted-foreground: 215 15% 55%;
+
+    --accent: 195 85% 90%;
+    --accent-foreground: 215 25% 15%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 88%;
+    --input: 210 15% 92%;
+    --ring: 210 85% 45%;
+
+    --radius: 0.75rem;
+
+    /* Scientific gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-scientific: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.8), hsl(210 20% 98% / 0.9));
+
+    /* Molecular shadows and glows */
+    --shadow-molecular: 0 4px 20px hsl(var(--primary) / 0.15);
+    --shadow-glow: 0 0 30px hsl(var(--primary-glow) / 0.4);
+    --shadow-card: 0 2px 10px hsl(215 25% 15% / 0.08);
+
+    /* Animation variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode scientific theme */
+    --background: 215 30% 8%;
+    --foreground: 210 30% 95%;
+
+    --card: 215 25% 12%;
+    --card-foreground: 210 30% 95%;
+
+    --popover: 215 25% 12%;
+    --popover-foreground: 210 30% 95%;
+
+    --primary: 210 85% 65%;
+    --primary-foreground: 215 30% 8%;
+    --primary-glow: 210 85% 75%;
+
+    --secondary: 180 65% 55%;
+    --secondary-foreground: 215 30% 8%;
+
+    --muted: 215 20% 15%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 195 75% 20%;
+    --accent-foreground: 210 30% 95%;
+
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 20%;
+    --input: 215 15% 18%;
+    --ring: 210 85% 65%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-scientific: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-card: linear-gradient(145deg, hsl(215 25% 12% / 0.9), hsl(215 20% 15% / 0.8));
+
+    --sidebar-background: 215 30% 8%;
+    --sidebar-foreground: 210 30% 95%;
+    --sidebar-primary: 210 85% 65%;
+    --sidebar-primary-foreground: 215 30% 8%;
+    --sidebar-accent: 215 20% 15%;
+    --sidebar-accent-foreground: 210 30% 95%;
+    --sidebar-border: 215 20% 20%;
+    --sidebar-ring: 210 85% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Scientific gradient utilities */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .bg-gradient-scientific {
+    background: var(--gradient-scientific);
+  }
+  
+  .bg-gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+  
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  /* Molecular shadow utilities */
+  .shadow-molecular {
+    box-shadow: var(--shadow-molecular);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Smooth animations */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Molecular pulse animation */
+  .animate-molecular-pulse {
+    animation: molecular-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes molecular-pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  /* Typing animation */
+  .animate-typing::after {
+    content: '|';
+    animation: typing-cursor 1s infinite;
+  }
+
+  @keyframes typing-cursor {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+}
